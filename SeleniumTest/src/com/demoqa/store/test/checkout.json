@@ -1,0 +1,15 @@
+{
+"checkout_info":{
+   "input_firstName": "Jennifer",
+   "input_lastName": "Smith",
+   "input_address": "1299 Queen Street",
+   "input_city": "Toronto",
+   "input_state": "Ontario",
+   "select_country": "Canada",
+   "input_postCode": "M5W 2N9",
+   "input_phone": "4161111111",
+   "input_shippingRegion": "Ontario",
+   "input_email": "someone@somedomain.com"
+   
+ }
+}
