@@ -3,6 +3,7 @@ package com.demoqa.store.page;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -14,17 +15,21 @@ public abstract class BasePage {
 	
 	protected WebDriver driver;
 	protected WebDriverWait wait;
+	protected JavascriptExecutor jse;
 	
 	public BasePage(WebDriver driver){
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, 10);
+		this.jse = (JavascriptExecutor)driver;
 	}
 	
 	abstract public void goTo();
 	abstract public boolean isAt();
 	
 	protected WebElement waitElement(String css){
-		return wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(css)));
+		WebElement ele = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(css)));
+		hl(ele);
+		return ele;
 	}
 	
 	protected void waitElementGone(String css){
@@ -67,7 +72,7 @@ public abstract class BasePage {
 	
 	protected void pause(int i){
 		try {
-			Thread.sleep(500);
+			Thread.sleep(300);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,5 +91,12 @@ public abstract class BasePage {
 		
 		return false;
 	}
+	
+	public void hl(WebElement ele)
+    {            
+        jse.executeScript("arguments[0].setAttribute('style', arguments[1]);", ele, " border: 3px solid red;");
+        pause(1);
+        jse.executeScript("arguments[0].setAttribute('style', arguments[1]);", ele, "");
+    }
 
 }
