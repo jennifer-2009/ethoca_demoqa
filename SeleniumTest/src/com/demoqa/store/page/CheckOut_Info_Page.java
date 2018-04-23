@@ -37,6 +37,7 @@ public class CheckOut_Info_Page extends NavigationPage{
 				switch (jobject.names().getString(i)) {
 				case "input_email":
 					this.input_email(input_value);
+					break;
 				case "input_firstName":
 					input_firstName(input_value);
 					break;
