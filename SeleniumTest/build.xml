@@ -1,4 +1,4 @@
-<project name="SeleniumTest" basedir="." default="run">
+<project name="SeleniumTest" basedir="." default="testng">
 	<property name="srcdir" location="src"/>
 	<property name="builddir" location="build"/>
 	<property name="testdir" location="${builddir}/test"/>
