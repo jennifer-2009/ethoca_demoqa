@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
 import com.demoqa.store.page.Page;
+import com.demoqa.store.util.ConfigFileReader;
 
 public class BaseTest {
 	
@@ -16,16 +17,19 @@ public class BaseTest {
 	
 	@BeforeClass
 	public void setUp(){
-		System.setProperty("webdriver.chrome.driver", "C:\\QA\\workspace_ethoca\\SeleniumTest\\driver\\chromedriver.exe");
+		long id = Thread.currentThread().getId();
+        System.out.println("Before test-method. Thread id is: " + id);
+		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
 		driver  = new ChromeDriver();
 		driver.manage().window().maximize();
 		page = new Page();
-		driver.get("http://store.demoqa.com/");
-		
+		driver.get(ConfigFileReader.getConfigValue("url"));		
 	}
 	
 	@AfterClass
 	public void tearDown(){
+		long id = Thread.currentThread().getId();
+        System.out.println("after test-method. Thread id is: " + id);
 		driver.quit();
 	}
 			

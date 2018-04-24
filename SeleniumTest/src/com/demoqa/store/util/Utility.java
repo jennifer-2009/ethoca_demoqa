@@ -1,19 +1,16 @@
 package com.demoqa.store.util;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Utility {
 	
 	public static JSONObject readJson(String jsonpath) {
-        HashMap<String, String> jsonMap = new HashMap<>();
+      
 
         try {
             InputStream is = Utility.class.getResourceAsStream(jsonpath);

@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.demoqa.store.util.ConfigFileReader;
+
 public abstract class BasePage {
 	
 	protected WebDriver driver;
@@ -19,7 +21,7 @@ public abstract class BasePage {
 	
 	public BasePage(WebDriver driver){
 		this.driver = driver;
-		this.wait = new WebDriverWait(driver, 10);
+		this.wait = new WebDriverWait(driver, Integer.parseInt(ConfigFileReader.getConfigValue("wait")));
 		this.jse = (JavascriptExecutor)driver;
 	}
 	

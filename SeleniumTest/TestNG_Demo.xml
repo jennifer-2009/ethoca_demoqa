@@ -1,10 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
   
-<suite name="Regression test suite" verbose="1" > 
+<suite name="Regression test suite" parallel="classes" thread-count="2"> 
 	<test name="case1">
 	  <classes>
 		<class name="com.demoqa.store.test.TransactionTest" />
-		
+		<class name="com.demoqa.store.test.MultiThreadTest" />
 	  </classes>
 	</test>
 	
