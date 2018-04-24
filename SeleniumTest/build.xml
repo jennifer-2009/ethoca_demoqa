@@ -28,35 +28,19 @@
 	
 	<target name="init">
 		<delete dir="${builddir}"/>
-		<delete dir="${test-outputdir}"/>		
+		<delete dir="${test-outputdir}"/>	
 		
 		<mkdir dir="${builddir}"/>
 		<mkdir dir="${testdir}"/>
 		<mkdir dir="${jardir}"/>
 		<mkdir dir="${test-outputdir}"/>		
-	</target>
-	
+	</target>	
 	
 	<target name="compile" depends="init">
 		<javac srcdir="${srcdir}" destdir="${testdir}" verbose="${full-compile}">
 			<classpath refid="classpath.test"/>			
 		</javac>
-	</target>
-	
-	<target name="jar" depends="compile">
-		<jar destfile="${jardir}/${ant.project.name}.jar" basedir="${testdir}">
-			<zipgroupfileset dir="${libdir}" includes="*.jar"/>
-			<zipgroupfileset dir="${libdir}" includes="*.jar" excludes="*.exe"/>
-			<manifest>
-				<attribute name="main-class" value="${main-class}"/>
-				<attribute name="class-path" value="${testdir}"/>
-			</manifest>
-		</jar>
-	</target>
-	
-	<target name="run" depends="jar">
-		<java jar="${jardir}/${ant.project.name}.jar" fork="true"/>
-	</target>
+	</target>	
 	
 	<target name="testng" depends="compile">
 

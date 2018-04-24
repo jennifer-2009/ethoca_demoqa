@@ -1,0 +1,6 @@
+.recommenders/
+.metadata/
+*.class
+*.png
+*.css
+SeleniumTest/test-output/
