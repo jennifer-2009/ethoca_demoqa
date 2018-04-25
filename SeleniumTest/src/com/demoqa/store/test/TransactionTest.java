@@ -6,7 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.demoqa.store.page.AccessoriesPage.products;
-import com.demoqa.store.util.Utility;
+import com.demoqa.store.util.JsonFileReader;
+
 
 public class TransactionTest extends BaseTest {
 
@@ -33,7 +34,7 @@ public class TransactionTest extends BaseTest {
 		page.CheckOut_YourCart(driver).click_checkout_continue();
 
 		// fill out the checkout form
-		JSONObject jobject = Utility.readJson("/com/demoqa/store/test/checkout.json");
+		JSONObject jobject = JsonFileReader.readJson("/com/demoqa/store/test/checkout.json");
 		page.CheckOut_Info(driver).edit_checkout_form(jobject);
 
 		// Verify user is on Transaction Result page

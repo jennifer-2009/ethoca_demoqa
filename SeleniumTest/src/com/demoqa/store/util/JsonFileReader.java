@@ -7,13 +7,13 @@ import java.io.InputStreamReader;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Utility {
+public class JsonFileReader {
 	
 	public static JSONObject readJson(String jsonpath) {
       
 
         try {
-            InputStream is = Utility.class.getResourceAsStream(jsonpath);
+            InputStream is = JsonFileReader.class.getResourceAsStream(jsonpath);
             BufferedReader buf = new BufferedReader(new InputStreamReader(is));
 
             String line = buf.readLine();
