@@ -7,7 +7,6 @@ public class AccessoriesPage extends NavigationPage{
 	private String magic_mouse_buy_css = "[action$='magic-mouse/'] [name='Buy']";
 	private String apple_tv_buy_css = "[action$='apple-tv/'] [name='Buy']";
 	
-	
 			
 	public AccessoriesPage(WebDriver driver){
 		super(driver);
@@ -29,12 +28,7 @@ public class AccessoriesPage extends NavigationPage{
 		wait_item_added_to_cart(old_item_count);
 		
 		return this;
-	}
-	
-	
-	
-	
-	
+	}	
 	
 	@Override
 	public void goTo() {

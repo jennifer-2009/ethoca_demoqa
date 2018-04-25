@@ -1,2 +1,5 @@
 url=http://store.demoqa.com/
+sprintQA=http://store.demoqa.com/
+stagingQA=http://store.demoqa.com/
+prod=http://store.demoqa.com/
 wait=15

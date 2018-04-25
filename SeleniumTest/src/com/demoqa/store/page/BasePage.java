@@ -18,11 +18,12 @@ public abstract class BasePage {
 	protected WebDriver driver;
 	protected WebDriverWait wait;
 	protected JavascriptExecutor jse;
+	public static String baseUrl = ConfigFileReader.getConfigValue("url");
 	
 	public BasePage(WebDriver driver){
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Integer.parseInt(ConfigFileReader.getConfigValue("wait")));
-		this.jse = (JavascriptExecutor)driver;
+		this.jse = (JavascriptExecutor)driver;		
 	}
 	
 	abstract public void goTo();

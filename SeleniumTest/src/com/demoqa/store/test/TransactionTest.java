@@ -12,9 +12,7 @@ public class TransactionTest extends BaseTest {
 
 	@Test
 	public void verify_product_added_in_Cart() {
-		long id = Thread.currentThread().getId();
-		System.out.println("............ Thread id is: " + id);
-
+		
 		// Go to Accessories page
 		page.Navigation(driver).select_product("Accessories");
 
@@ -30,9 +28,7 @@ public class TransactionTest extends BaseTest {
 	@Test(dependsOnMethods = { "verify_product_added_in_Cart" })
 	public void verify_user_on_Transaction_Result_page() {
 
-		long id = Thread.currentThread().getId();
-		System.out.println("............. Thread id is: " + id);
-
+		
 		// after confirming, click Continue
 		page.CheckOut_YourCart(driver).click_checkout_continue();
 
@@ -48,8 +44,7 @@ public class TransactionTest extends BaseTest {
 
 	@Test(dependsOnMethods = { "verify_user_on_Transaction_Result_page" })
 	public void verify_order_is_correct() {
-		long id = Thread.currentThread().getId();
-		System.out.println("................ Thread id is: " + id);
+		
 		// Verify user has correct order
 		String[] actual_result = page.CheckOut_Result(driver).getResultArray();
 
