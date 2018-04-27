@@ -4,3 +4,4 @@
 *.png
 *.css
 SeleniumTest/test-output/
+MavenSeleniumTest/target/

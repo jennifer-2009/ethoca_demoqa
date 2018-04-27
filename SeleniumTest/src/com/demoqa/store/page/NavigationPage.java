@@ -35,6 +35,7 @@ public class NavigationPage extends BasePage{
 		}		
 	}
 	
+	
 	public CheckOut_YourCart_Page click_checkOut(){
 		waitElement(check_out_css).click();
 		
@@ -48,7 +49,7 @@ public class NavigationPage extends BasePage{
 	
    protected void wait_item_added_to_cart(int old_item_count){
 		
-		int waitSeconds = 10;
+		int waitSeconds = 10; // actual value is 3.3 seconds
 		int current_item_count = get_item_count();
 		
 		while(waitSeconds < 0 || current_item_count==old_item_count){

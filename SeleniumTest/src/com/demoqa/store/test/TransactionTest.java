@@ -28,13 +28,14 @@ public class TransactionTest extends BaseTest {
 
 	@Test(dependsOnMethods = { "verify_product_added_in_Cart" })
 	public void verify_user_on_Transaction_Result_page() {
-
+		
+		String testData = getMethodName();;
 		
 		// after confirming, click Continue
 		page.CheckOut_YourCart(driver).click_checkout_continue();
 
 		// fill out the checkout form
-		JSONObject jobject = JsonFileReader.readJson("/com/demoqa/store/test/checkout.json");
+		JSONObject jobject = JsonFileReader.readJson("/com/demoqa/store/test/checkout.json", testData);
 		page.CheckOut_Info(driver).edit_checkout_form(jobject);
 
 		// Verify user is on Transaction Result page
@@ -52,6 +53,6 @@ public class TransactionTest extends BaseTest {
 		String[] expected_result = { "Magic Mouse", "$150.00", "1", "$150.00" };
 
 		Assert.assertEquals(actual_result, expected_result);
-	}
-
+	}	
+	
 }

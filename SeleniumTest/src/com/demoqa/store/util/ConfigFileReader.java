@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.testng.Reporter;
+
 public class ConfigFileReader {
 	
 	 public static Map<String, String>  readTxt(String filePath) {
@@ -26,7 +28,7 @@ public class ConfigFileReader {
 	            }
 
 	        } catch (IOException e) {
-	            e.printStackTrace();
+	        	Reporter.log("Read Config File - IOException............"+e.getMessage());
 	        }
 
 	        return map;

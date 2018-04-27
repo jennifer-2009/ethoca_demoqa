@@ -6,10 +6,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.testng.Reporter;
 
 public class JsonFileReader {
 	
-	public static JSONObject readJson(String jsonpath) {
+	public static JSONObject readJson(String jsonpath, String testData) {
       
 
         try {
@@ -28,13 +29,13 @@ public class JsonFileReader {
 
             JSONObject jsonObject = new JSONObject(jsonString);
             
-            JSONObject checkOutObject = jsonObject.getJSONObject("checkout_info");
+            JSONObject checkOutObject = jsonObject.getJSONObject(testData);
             
             return checkOutObject;            
         } catch (IOException e) {
-            e.printStackTrace();
+        	Reporter.log("IOException............"+e.getMessage());	
         } catch (JSONException e) {
-            e.printStackTrace();
+        	Reporter.log("JSONException............"+e.getMessage());	
         }	  
         
         return null;

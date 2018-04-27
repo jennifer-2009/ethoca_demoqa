@@ -3,6 +3,7 @@ package com.demoqa.store.page;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.openqa.selenium.WebDriver;
+import org.testng.Reporter;
 
 public class CheckOut_Info_Page extends NavigationPage{
 	
@@ -31,7 +32,7 @@ public class CheckOut_Info_Page extends NavigationPage{
 				input_value = (String)jobject.get(jobject.names().getString(i));
 			} catch (JSONException e1) {
 				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				Reporter.log(e1.getMessage());				
 			}
     		try {
 				switch (jobject.names().getString(i)) {
@@ -69,7 +70,7 @@ public class CheckOut_Info_Page extends NavigationPage{
 				}
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Reporter.log(e.getMessage());	
 			}
     	}
     	this.click_puchage();
